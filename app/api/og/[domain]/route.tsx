@@ -1,0 +1,94 @@
+import { ImageResponse } from 'next/og';
+import { getCachedScan } from '@/lib/supabase';
+
+export const runtime = 'edge';
+
+export async function GET(
+  request: Request,
+  { params }: { params: Promise<{ domain: string }> }
+) {
+  const { domain } = await params;
+
+  // Fetch scan data
+  const scan = await getCachedScan(domain);
+
+  const withAIO = scan?.keywords_with_aio || 0;
+  const total = scan?.keywords_total || 0;
+  const percentage = total > 0 ? Math.round((withAIO / total) * 100) : 0;
+
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          background: 'linear-gradient(to bottom right, #EFF6FF, #E0E7FF)',
+          padding: '80px',
+        }}
+      >
+        {/* Title */}
+        <div
+          style={{
+            fontSize: 60,
+            fontWeight: 'bold',
+            color: '#111827',
+            marginBottom: 40,
+          }}
+        >
+          {domain}
+        </div>
+
+        {/* Stats */}
+        <div
+          style={{
+            fontSize: 80,
+            fontWeight: 'bold',
+            color: '#EA580C',
+            marginBottom: 20,
+          }}
+        >
+          {withAIO} / {total}
+        </div>
+
+        {/* Label */}
+        <div
+          style={{
+            fontSize: 40,
+            color: '#6B7280',
+          }}
+        >
+          keywords affected by AI Overviews
+        </div>
+
+        {/* Progress bar */}
+        <div
+          style={{
+            width: '80%',
+            height: 20,
+            background: '#E5E7EB',
+            borderRadius: 10,
+            marginTop: 40,
+            overflow: 'hidden',
+            display: 'flex',
+          }}
+        >
+          <div
+            style={{
+              width: `${percentage}%`,
+              background: '#EA580C',
+              height: '100%',
+            }}
+          />
+        </div>
+      </div>
+    ),
+    {
+      width: 1200,
+      height: 630,
+    }
+  );
+}
