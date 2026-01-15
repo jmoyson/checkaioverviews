@@ -1,56 +1,42 @@
-import { DomainInput } from "@/components/domain-input";
+"use client";
+
+import { useEffect, useState } from 'react';
+import { getStats, type Stats } from '@/lib/stats';
+import { HeroSection } from '@/components/landing/hero-section';
+import { CategorySection } from '@/components/landing/category-section';
+import { BenefitsSection } from '@/components/landing/benefits-section';
+import { InsightsSection } from '@/components/landing/insights-section';
+import { StrategySection } from '@/components/landing/strategy-section';
+import { FAQSection } from '@/components/landing/faq-section';
+import { CTASection } from '@/components/landing/cta-section';
+import { Footer } from '@/components/landing/footer';
 
 export default function Home() {
+  const [stats, setStats] = useState<Stats | null>(null);
+
+  useEffect(() => {
+    getStats().then(setStats);
+  }, []);
+
   return (
-    <main className="min-h-screen flex items-center justify-center bg-white px-4">
-      <div className="max-w-3xl w-full">
-        {/* Badge */}
-        <div className="flex justify-center mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-100 border border-gray-200">
-            <span className="text-xs font-medium text-gray-600">
-              Free tool for SEO professionals
-            </span>
-          </div>
-        </div>
+    <main className="min-h-screen bg-white text-black">
+      {/* Background Grid */}
+      <div className="fixed inset-0 opacity-[0.015] pointer-events-none" style={{
+        backgroundImage: 'linear-gradient(black 1px, transparent 1px), linear-gradient(90deg, black 1px, transparent 1px)',
+        backgroundSize: '50px 50px'
+      }} />
 
-        {/* Hero */}
-        <div className="text-center mb-12">
-          <h1 className="text-6xl font-bold tracking-tight text-gray-900 mb-6">
-            Track Your Keywords
-            <br />
-            <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">
-              Stolen by AI
-            </span>
-          </h1>
-          <p className="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
-            See which of your ranking keywords are being affected by
-            Google&apos;s AI Overviews—and which ones you&apos;re still getting
-            credit for.
-          </p>
-        </div>
+      {/* Top Accent Line */}
+      <div className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#FF4500] to-transparent opacity-60 z-50" />
 
-        {/* Input */}
-        <DomainInput />
-
-        {/* Footer note */}
-        <p className="mt-6 text-center text-sm text-gray-500">
-          Instant analysis • No signup required • Free forever
-        </p>
-        <p className="mt-3 text-center text-xs text-gray-400">
-          Currently tracking US English results only
-        </p>
-        <p className="mt-4 text-center text-xs text-gray-400">
-          Questions?{" "}
-          <a
-            href="https://x.com/jeremymoyson"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-500 hover:text-gray-700 transition-colors underline decoration-dotted"
-          >
-            @jeremymoyson
-          </a>
-        </p>
-      </div>
+      <HeroSection stats={stats} />
+      {stats && <CategorySection stats={stats} />}
+      <BenefitsSection />
+      <InsightsSection stats={stats} />
+      <StrategySection />
+      <FAQSection />
+      <CTASection />
+      <Footer />
     </main>
   );
 }
