@@ -19,12 +19,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: 'Not Found' };
   }
 
+  const title = `${domain} - AI Overview Impact Report`;
+  const description = `How many of ${domain}'s keywords trigger Google AI Overviews? See the full analysis.`;
+
   return {
-    title: `${domain} - AI Overview Analysis`,
-    description: `See which of ${domain}'s ranking keywords are affected by Google's AI Overviews`,
+    title,
+    description,
     openGraph: {
-      title: `${domain} - AI Overview Analysis`,
-      description: `Check which keywords trigger AI Overviews for ${domain}`,
+      title,
+      description,
     },
   };
 }

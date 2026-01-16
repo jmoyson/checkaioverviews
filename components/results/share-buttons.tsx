@@ -19,8 +19,8 @@ export function ShareButtons({ domain, impactPercentage, totalKeywords, affected
   }, []);
 
   const tweetText = impactPercentage >= 50
-    ? `${impactPercentage}% of ${domain}'s keywords are affected by Google's AI Overviews.\n\nCheck your domain:`
-    : `Just checked ${domain} - ${affectedKeywords}/${totalKeywords} keywords trigger AI Overviews.\n\nCheck yours:`;
+    ? `${impactPercentage}% of ${domain}'s keywords trigger Google AI Overviews`
+    : `${affectedKeywords}/${totalKeywords} keywords on ${domain} trigger AI Overviews`;
 
   const handleCopyLink = async () => {
     try {

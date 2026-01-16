@@ -92,7 +92,14 @@ export function HeroSection({ stats }: HeroSectionProps) {
                   data-umami-event="scan_started"
                   data-umami-event-domain={trackingDomain}
                 >
-                  {loading ? 'SCANNING' : 'SCAN NOW'}
+                  {loading ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <span className="h-4 w-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      SCANNING
+                    </span>
+                  ) : (
+                    'SCAN NOW'
+                  )}
                 </button>
               </div>
             </div>
