@@ -9,7 +9,7 @@
 import { supabase } from '@/lib/db/client';
 
 export async function GET() {
-  const baseUrl = 'https://checkaioverviews.com';
+  const baseUrl = 'https://scanaio.com';
 
   // Static pages
   const staticPages: { url: string; priority: string; changefreq: string; lastmod?: string }[] = [

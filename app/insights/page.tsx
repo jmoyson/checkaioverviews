@@ -35,7 +35,7 @@ export default function InsightsPage() {
       <header className="relative py-6 px-6 border-b border-black/10">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <Link href="/" className="text-xl font-black text-black hover:text-[#FF4500] transition-colors">
-            CheckAIOverviews
+            ScanAIO
           </Link>
           <Link
             href="/"

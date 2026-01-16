@@ -2,8 +2,8 @@ import { ArrowLeft } from 'lucide-react';
 import { Footer } from '@/components/landing/footer';
 
 export const metadata = {
-  title: 'Privacy Policy - CheckAIOverviews',
-  description: 'Privacy policy for CheckAIOverviews.com',
+  title: 'Privacy Policy - ScanAIO',
+  description: 'Privacy policy for ScanAIO.com',
 };
 
 export default function PrivacyPage() {
@@ -36,7 +36,7 @@ export default function PrivacyPage() {
 
           <h2 className="text-xl font-bold text-black mt-8 mb-4">What we collect</h2>
           <p>
-            When you use CheckAIOverviews, we collect the domain names you submit for analysis.
+            When you use ScanAIO, we collect the domain names you submit for analysis.
             We do not collect personal information, email addresses, or require any account registration.
           </p>
 

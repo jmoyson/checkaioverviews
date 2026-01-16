@@ -1,5 +1,5 @@
 /**
- * POST /api/check
+ * POST /api/scan
  *
  * Domain scan endpoint:
  * 1. Validate domain
@@ -132,7 +132,7 @@ export async function POST(request: Request) {
       } as APIError, { status: 400 });
     }
 
-    if (isDev) console.log('[API /check] Request:', domain, rawDomain !== domain ? `(cleaned from: ${rawDomain})` : '');
+    if (isDev) console.log('[API /scan] Request:', domain, rawDomain !== domain ? `(cleaned from: ${rawDomain})` : '');
 
     // =========================================================================
     // Cache Check
@@ -140,7 +140,7 @@ export async function POST(request: Request) {
     const cached = await getCachedDomain(domain);
 
     if (cached) {
-      if (isDev) console.log('[API /check] Cache HIT');
+      if (isDev) console.log('[API /scan] Cache HIT');
 
       const keywords = await getKeywordsByDomain(domain);
       const withAioCount = keywords.filter(k => k.hasAiOverview).length;
@@ -164,14 +164,14 @@ export async function POST(request: Request) {
     // =========================================================================
     const pending = pendingRequests.get(domain);
     if (pending) {
-      if (isDev) console.log('[API /check] Waiting for pending request');
+      if (isDev) console.log('[API /scan] Waiting for pending request');
       return NextResponse.json(await pending);
     }
 
     // =========================================================================
     // Cache Miss - Fetch and store
     // =========================================================================
-    if (isDev) console.log('[API /check] Cache MISS');
+    if (isDev) console.log('[API /scan] Cache MISS');
 
     // Record the request in-memory before making the API call
     // (This prevents duplicate API calls while the scan is in progress)
@@ -186,8 +186,8 @@ export async function POST(request: Request) {
         const parsed = parseDataForSEOResponse(rawResponse);
 
         if (isDev) {
-          console.log('[API /check] Parsed:', parsed.keywords.length, 'keywords');
-          console.log('[API /check] Stats:', parsed.stats);
+          console.log('[API /scan] Parsed:', parsed.keywords.length, 'keywords');
+          console.log('[API /scan] Stats:', parsed.stats);
         }
 
         // 3. Store scan (raw response archive + IP for rate limiting)
@@ -202,7 +202,7 @@ export async function POST(request: Request) {
         // 6. Recalculate global stats
         await recalculateGlobalStats();
 
-        if (isDev) console.log('[API /check] Stored successfully');
+        if (isDev) console.log('[API /scan] Stored successfully');
 
         // 7. Return top 15 keywords for display
         const displayKeywords: Keyword[] = parsed.keywords
@@ -239,7 +239,7 @@ export async function POST(request: Request) {
     return NextResponse.json(await scanPromise);
 
   } catch (error) {
-    if (isDev) console.error('[API /check] ERROR:', error);
+    if (isDev) console.error('[API /scan] ERROR:', error);
     return NextResponse.json({
       error: 'Internal Server Error',
       message: error instanceof Error ? error.message : 'Unknown error',

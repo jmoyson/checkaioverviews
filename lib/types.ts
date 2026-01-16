@@ -1,5 +1,5 @@
 /**
- * Shared Types for checkaioverviews.com
+ * Shared Types for scanaio.com
  *
  * Naming: Uses DataForSEO terminology (hasAiOverview, withAio)
  * Frontend labels can use "Stolen by AI" for branding

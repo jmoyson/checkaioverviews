@@ -1,4 +1,4 @@
-import { HeartIcon } from "lucide-react";
+import { Headphones, HeartIcon, Music2 } from "lucide-react";
 import Link from "next/link";
 
 export function Footer() {
@@ -15,7 +15,7 @@ export function Footer() {
         </div>
         <div className="flex items-center justify-center gap-2 text-sm text-white/40">
           <span>Made with</span>
-          <HeartIcon size={12} />
+          <Headphones size={16} color="#FF4500" />
           <span>by</span>
           <a
             href="https://x.com/jeremymoyson"
@@ -27,7 +27,7 @@ export function Footer() {
           </a>
         </div>
         <div className="flex items-center justify-center gap-6 text-sm text-white/40">
-          <div>© {new Date().getFullYear()} CheckAIOverviews</div>
+          <div>© {new Date().getFullYear()} ScanAIO</div>
           <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
           <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
         </div>

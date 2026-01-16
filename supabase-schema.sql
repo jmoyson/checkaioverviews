@@ -1,5 +1,5 @@
 -- ============================================================================
--- Supabase Database Schema for checkaioverviews.com
+-- Supabase Database Schema for scanaio.com
 -- ============================================================================
 --
 -- 4-table schema:

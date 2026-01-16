@@ -3,12 +3,12 @@
  */
 
 export function GET() {
-  const robotsTxt = `# checkaioverviews.com robots.txt
+  const robotsTxt = `# scanaio.com robots.txt
 User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://checkaioverviews.com/sitemap.xml
+Sitemap: https://scanaio.com/sitemap.xml
 
 # Disallow API routes from indexing
 Disallow: /api/

@@ -43,7 +43,7 @@ export default async function ResultsPage({ params }: Props) {
   // If not scanned yet, trigger a scan via API
   if (!existingDomain) {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/check`,
+      `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/scan`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -59,7 +59,7 @@ export default async function ResultsPage({ params }: Props) {
 
   // Fetch fresh data
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/check`,
+    `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/scan`,
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

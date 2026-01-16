@@ -2,8 +2,8 @@ import { ArrowLeft } from 'lucide-react';
 import { Footer } from '@/components/landing/footer';
 
 export const metadata = {
-  title: 'Terms of Service - CheckAIOverviews',
-  description: 'Terms of service for CheckAIOverviews.com',
+  title: 'Terms of Service - ScanAIO',
+  description: 'Terms of service for ScanAIO.com',
 };
 
 export default function TermsPage() {
@@ -36,7 +36,7 @@ export default function TermsPage() {
 
           <h2 className="text-xl font-bold text-black mt-8 mb-4">Service Description</h2>
           <p>
-            CheckAIOverviews is a free tool that analyzes which of your domain's ranking keywords
+            ScanAIO is a free tool that analyzes which of your domain's ranking keywords
             trigger Google's AI Overviews. The service is provided "as is" without warranty.
           </p>
 
@@ -55,7 +55,7 @@ export default function TermsPage() {
 
           <h2 className="text-xl font-bold text-black mt-8 mb-4">Limitation of Liability</h2>
           <p>
-            CheckAIOverviews and its creators are not liable for any damages arising from the use
+            ScanAIO and its creators are not liable for any damages arising from the use
             of this service. Use the information provided at your own risk.
           </p>
 

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Why Use This Tool? | Check AI Overviews',
+  title: 'Why Use This Tool? | ScanAIO',
   description: 'Stop guessing which keywords are affected by AI Overviews. Make data-driven content decisions with our free tool.',
 };
 
@@ -24,7 +24,7 @@ export default function WhyPage() {
       <header className="relative py-6 px-6 border-b border-black/10">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <Link href="/" className="text-xl font-black text-black hover:text-[#FF4500] transition-colors">
-            CheckAIOverviews
+            ScanAIO
           </Link>
           <Link
             href="/"

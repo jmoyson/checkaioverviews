@@ -2,30 +2,30 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Check AI Overviews",
+  title: "ScanAIO - AI Overview Scanner",
   description: "See which of your ranking keywords trigger Google's AI Overviews.",
   openGraph: {
-    title: "Check AI Overviews",
+    title: "ScanAIO - AI Overview Scanner",
     description: "See which of your ranking keywords trigger Google's AI Overviews.",
-    url: "https://checkaioverviews.com",
+    url: "https://scanaio.com",
     type: "website",
-    siteName: "Check AI Overviews",
+    siteName: "ScanAIO",
     images: [
       {
-        url: "https://checkaioverviews.com/og-default.png",
+        url: "https://scanaio.com/og-default.png",
         width: 1200,
         height: 630,
-        alt: "Check AI Overviews - See which keywords trigger Google AI Overviews",
+        alt: "ScanAIO - See which keywords trigger Google AI Overviews",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Check AI Overviews",
+    title: "ScanAIO - AI Overview Scanner",
     description: "See which of your ranking keywords trigger Google's AI Overviews.",
-    images: ["https://checkaioverviews.com/og-default.png"],
+    images: ["https://scanaio.com/og-default.png"],
   },
-  metadataBase: new URL("https://checkaioverviews.com"),
+  metadataBase: new URL("https://scanaio.com"),
 };
 
 export default function RootLayout({

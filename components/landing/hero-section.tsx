@@ -30,7 +30,7 @@ export function HeroSection({ stats, isLoading = false }: HeroSectionProps) {
         throw new Error('Please enter a valid domain (e.g., example.com)');
       }
 
-      const response = await fetch('/api/check', {
+      const response = await fetch('/api/scan', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ domain: normalizedDomain }),

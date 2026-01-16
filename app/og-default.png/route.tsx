@@ -31,7 +31,7 @@ export async function GET() {
             textAlign: 'center',
           }}
         >
-          Check AI Overviews
+          ScanAIO
         </div>
 
         {/* Subtitle */}
@@ -100,7 +100,7 @@ export async function GET() {
             marginTop: 60,
           }}
         >
-          checkaioverviews.com
+          scanaio.com
         </div>
       </div>
     ),
